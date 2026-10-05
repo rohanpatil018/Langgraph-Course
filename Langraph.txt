@@ -1,0 +1,164 @@
+Langraph
+
+difference between GEN AI vs Agentic AI
+Here is the breakdown of the analogy and the differences:
+
+Generative ai is capability and agentic ai is behavior.
+
+The Analogy: Hiring a Backend Engineer
+To show how AI evolves, the video walks through the steps of hiring a candidate: drafting a job description (JD), posting it on job platforms, screening resumes, scheduling interviews, conducting interviews, and handling the offer letter and onboarding.
+
+Generative AI (The Assistant)
+
+How it works in the analogy: You use a basic LLM chatbot. When you need a job description or interview questions, you ask the bot to write them.
+
+Key Characteristics:
+
+Reactive: It only responds when you prompt it. It cannot take initiative or plan ahead.
+
+No Direct Actions: It can draft an email or write a JD for you, but it cannot send the email or post the job on LinkedIn by itself. You still have to do all the manual execution.
+
+Summary: Generative AI is focused on providing capabilities like creating content, text, images, or code.
+
+Agentic AI (The Autonomous Worker)
+
+How it works in the analogy: Instead of manually guiding every step, you give the AI a high-level goal, such as hiring a backend engineer with specific experience. The Agentic AI understands the goal, creates a full plan, and autonomously executes it using tools like APIs for job portals, calendar integrations, resume parsers, and HR software.
+
+Key Characteristics:
+
+Proactive and Autonomous: Once given a goal, it plans the steps, executes them, and even handles unexpected obstacles. For example, if only two people apply, the AI notices the low response rate, suggests broadening the JD or boosting the post, and updates the posting automatically with your approval.
+
+Tool-Augmented: It interacts directly with external systems to send emails, check calendar availability, schedule interviews, and trigger onboarding workflows.
+
+Context-Aware and Adaptable: It maintains memory of previous steps, tracks whether candidate offers are accepted, and adapts its strategy if something goes wrong.
+
+Summary of Differences
+
+Role: Generative AI acts as a smart assistant that helps you write or create content when asked. Agentic AI acts as an autonomous worker that takes a goal, plans, and executes tasks using tools.
+
+Behavior: Generative AI is reactive, waiting for your command. Agentic AI is proactive, taking initiative, monitoring progress, and solving problems.
+
+Action Execution: Generative AI cannot act on external platforms directly; the human must copy-paste and execute. Agentic AI connects to APIs and tools to post jobs, send emails, and schedule meetings autonomously.
+
+Core Essence: Generative AI is a capability focused on creating content. Agentic AI is a behavior focused on reasoning, planning, and executing goals.
+-----------------------------------------
+
+What is Agentic AI:
+defination- Agentic AI is a type of AI that can take uo a task or goal from a user and then work toward comapleting it on its own,with minimal human guidance 
+
+It plans, takes action, adapts to changes, and seeks help only when necessary
+
+Characteristics
+Autonomous
+Goal Oriented
+Planning
+Reasoning
+Adaptibility
+Scalable
+Proactive
+context aawareness
+planning
+
+
+Components of Agentic AI
+1)Brain
+2)Orchestrator
+3)Tools
+4)Memory
+5)Supervisor
+
+
+
+Langchian vs Langraph
+
+-----------------------------------
+Langraph core concepts:
+
+Langraph is an orchestration framework for building intelligent, stateful, and multi-step LLM Workflows.
+
+it enables advanced features like parallelism,loops,branching,memory ans resumability- making it ideal for agentic and production-grade AI applications.
+
+it models your logic as a graph of nodes(tasks) and edges(routing) instead of a linear chain.
+
+1)LLM workfows-
+-LLM workflows are astep by step process using which we can build complex LLM application.
+-Each step in a workflow performs a distinct task- such as prompting,reasoning,tool calling,memory access or decision-making.
+-Workflows can be linear, branched or looped, allowing for complex behaviours like retries, multi-agent communication or tool augumented reasoning.
+-common workflows:
+1)Prompt Chaining
+in->LLM call1->gate>pass->llm call 2->output2->LLM vall 3->out
+
+
+in->llm call1->output1->gate->fail->exit.
+
+2)Routing-
+
+in->LLM call router->LLmcall1/llmcall2/lllmcall3->out
+
+
+3)Parallelization-
+task->subtasks-parallel process
+
+in->LLM call1/llmcall2/llmcall3->Aggregator->out
+
+4)Orchestrator Workers-
+task->subtaks(dynamically not static like parallization)
+in->Orchestrators->LLm call1/llm call2/llmcall3->synthesizer->out
+
+5)Evaluator Optimizer-
+In->LLM call generator->solution->llm call evaluator->reject->LLm call genrator-->accepted->out.
+
+
+
+Graphs,Nodes and Edges
+
+The system generates an essay topic,collects the students submission and evaluates it in parallel on depth of analysis, language quality and clarity of thought. Based on the combined score it either gives feedback for improvements or approve the essay.
+
+analogy with each step examples.
+(UPSC exam- essay during mains exam)->website for practing this esssays.
+
+Explain by diagram flow 
+
+
+node->python function
+graph->set of python function connected thorugh edes
+
+edges->sequential.parallel,conditional
+----------------------------------
+
+State->In langraph state is the shared memory that flows through your workflow- it holds all the data being passed between nodes as your graph runs.
+Shared and mutable.
+dict->tupedict in python always available in code
+
+explain with same upsc essay web workflow.
+
+
+Reducers
+in langraph define how updates from nodes are applied to the shared state.
+Each key in the sate can have its own reducer, which determines wheather new data replaces, merges, or adds to the existing values.
+
+
+
+Langraph Execution Model
+1)Graph Defination
+you define 
+the state schema
+nodes
+edges
+
+compilation
+you call .commplie() on the stategraph
+this checks the graph structure and prepares it for execution.
+
+3)ionvocation
+you run the graph with .invoke(initial_state)
+langraph sends the inital state as a message to the entry node(s).
+
+super-steps begin
+execution proceeds in rounds.
+
+
+
+
+
+
