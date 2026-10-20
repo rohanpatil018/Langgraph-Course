@@ -156,9 +156,55 @@ langraph sends the inital state as a message to the entry node(s).
 
 super-steps begin
 execution proceeds in rounds.
+--------------------------------------------
+
+Persistant:
+in Langgraph it refers to the ability to save and restore the sate of a workflow over the time.
+  
+  it stores final_values and intermediate values also
+  means storing all values at each node in graph
+fault tolereance-> means if the falut occurs it start form that node itself
+
+check pointer-> cdivdes graph execution in checkpoints and then validate each check pointer
+
+
+Threads-> you invoked a graph twice since you have applied persistant the values stored in checkpoints
+         in next invoke same happened and now you have to resume to check the vlaues in DB if you have 
+         to execute particular node you assign a thread id then the values will be stored agaist that 
+         thread id so now you will ask for thread id to know values of  the state
+
+
+benefits for Persistant:
+
+ShortTerm Memory
+Fault tolereance
+HITL
+Time Travel
 
 
 
+Streamlit function use to build a chatbot->
+chat_input()
+chat_message()
+session_state
+message_history->list to save the chat message_history
+st.text
+------------------------
 
+streaming->
+in llms, streaming means the model starts sending token as soon as they generated instead of waiting
+fro the entire response to reeady before returning it
 
+why streaming->
+1)faster reaponse time- low drop off rates.
+2)mimics human like convo
+3)important for multi model UIs
+4)better ux for long output such as code
+5)you can cancel midway saving token
+6)you can interleave UI updates 
 
+Implementation->
+
+graph.stream()
+
+-----------------------------------------------------
